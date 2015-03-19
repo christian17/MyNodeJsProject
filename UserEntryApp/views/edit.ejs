@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/update" method="post" accept-charset="utf-8">
+    	<input type="hidden" name="id" value="<%= user._id %>"/>
+    	<table>
+    		<tr>
+				<td>No.</td>
+				<td><input type="text" name="no" value="<%= user.user_no %>"/></td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="name" value="<%= user.name %>"/></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="text" name="email" value="<%= user.email %>"/></td>
+			</tr>
+			<tr>
+				<td>Birthday</td>
+				<td><input type="text" name="birthday" value="<%= (new Date(user.birthday)).toLocaleDateString() %>"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Submit"></td>
+			</tr>			
+		</table>
+		<br>
+		<a href="/">Back</a>
+	</form>
+  </body>
+</html>

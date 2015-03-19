@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    	<table>
+    		<tr>
+				<td>No.</td>
+				<td><%= user.user_no %></td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td><%= user.name %></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><%= user.email %></td>
+			</tr>
+			<tr>
+				<td>Birthday</td>
+				<td><%= (new Date(user.birthday)).toLocaleDateString() %></td>
+			</tr>			
+		</table>
+		<br>
+		<a href="/">Back</a>
+		<a href="/edit/<%= user._id %>" title="Edit this user item">Edit</a>
+  </body>
+</html>

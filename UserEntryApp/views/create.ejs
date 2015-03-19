@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/insert" method="post" accept-charset="utf-8">
+    	<table>
+    		<tr>
+				<td>No.</td>
+				<td><input type="text" name="no"/></td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="name"/></td>
+			</tr>
+			<tr>
+				<td>Email</td>
+				<td><input type="text" name="email"/></td>
+			</tr>
+			<tr>
+				<td>Birthday</td>
+				<td><input type="text" name="birthday"/></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="submit" value="Submit"></td>
+			</tr>			
+		</table>
+		<br>
+		<a href="/">Back</a>
+	</form>
+  </body>
+</html>

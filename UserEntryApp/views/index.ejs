@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/create" method="post" accept-charset="utf-8">
+    	<input type="submit" value="New">
+	</form>
+    <br>
+	<form action="/?issearch=true" method="post" accept-charset="utf-8">
+		<input type="text" name="searchName" value="<%= searchName %>"/>
+		<input type="submit" value="Search">
+		<table border="1">
+			<tr>
+				<th>Action</th>
+				<th><a style="text-decoration: none;" href="/?sortBy=name">Name<% if(sorty == 'name' && order== 1){ %>&#9660;<% }else if(sorty == 'name' && order== -1){ %>&#9650;<% } %> </a></th>
+				<th><a style="text-decoration: none;" href="/?sortBy=email">Email<% if(sorty == 'email' && order== 1){ %>&#9660;<% }else if(sorty == 'email' && order== -1){ %>&#9650;<% } %> </a></th>
+				<th><a style="text-decoration: none;" href="/?sortBy=birthday">Birthday<% if(sorty == 'birthday' && order== 1){ %>&#9660;<% }else if(sorty == 'birthday' && order== -1){ %>&#9650;<% } %> </a></th>
+			</tr>
+			<% users.forEach( function ( user ){ %>
+			<tr>
+				<td>
+					<a href="/edit/<%= user._id %>" title="Edit this user item">Edit</a>
+					<a href="/destroy/<%= user._id %>" title="Delete this user item">Del</a>
+				</td>
+				<td><a href="/detail/<%= user._id %>" title="View this user item"><%= user.name %></a></td>
+				<td><%= user.email %></td>
+				<td><%= (new Date(user.birthday)).toLocaleDateString() %></td>
+			</tr>
+			<% }); %>
+		</table>
+	</form>
+  </body>
+</html>
